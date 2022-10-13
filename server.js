@@ -8,8 +8,9 @@ const dataBaseJson= 'db/db.json';
 ///// Init Server ////
 const app = express();
 const PORT = 3001;
-
-
+app.use( express.urlencoded({ extended: true }));
+app.use( express.json());
+app.use( express.static( 'public' ));
 //`GET /api/notes` should read the `db.json` file and return all saved notes as JSON.////
 app.get('/api/notes', (res, req)=>{
     fs.readFileSync(dataBaseJson, 'utf8'); ///https://stackoverflow.com/questions/48818415/json-parsefs-readfilesync-returning-a-buffer-string-of-numbers ///
@@ -35,7 +36,7 @@ app.get('/notes', (res, req)=>{
 });
 
 // `GET *` should return the `index.html` file.////////
-app.get('*', (res, req)=>{
+app.get('/', (res, req)=>{
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 

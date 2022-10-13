@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 body{
-  background-image: url('/public/assets/image/book-1052014.jpg');
+  background-image: url('../image/book-1052014.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   
