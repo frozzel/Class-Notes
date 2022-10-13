@@ -1,10 +1,73 @@
 html,
 body {
+  font-family: 'Caveat', cursive;
   height: 100%;
   margin: 0;
   padding: 0;
 }
+body{
+  background-image: url('/public/assets/image/book-1052014.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+nav{
+  box-shadow: 1px 1px 2px whitesmoke;
+  opacity: .95;
+  
+}
+.navbar-brand{
+  
+  font-size: 25px;
+  margin-left: 10%;
+}
+.blank{
+  color: whitesmoke;
+  justify-content: center;
+  align-content: center;
+  font-size: 6em;
+  height: 25%;
+}
+.container{
+  justify-content: center;
+  align-content: center;
+  border-radius: 25px;
+  color: whitesmoke;
+  width: 50%;
+  height: fit-content;
+  padding: auto;
+  text-shadow: 2px 2px 3px rgb(30, 33, 36);
+  
 
+  
+}
+.container-fluid{
+  color: whitesmoke;
+  
+}
+.logo{
+  margin-top: 10px;
+}
+.takenotes{
+  font-size: 3rem;
+}
+.mainBtn{
+  margin-bottom: 10px;
+  background-color: whitesmoke;
+  color:  rgb(30, 33, 36);
+  border-color: whitesmoke;
+  border-radius: 30px;
+  width: 200px;
+  text-shadow: none;
+}
+.mainBtn:hover{
+  margin-bottom: 10px;
+  background-color: rgb(30, 33, 36);
+  color:  whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 30px;
+  width: 200px;
+}
 .save-note {
   display: none;
 }
@@ -15,37 +78,56 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
 }
-
+.card{
+  opacity: .95;
+  background-color: rgb(30, 33, 36);
+  border-radius: 15px;
+  color: whitesmoke;
+  padding: auto;
+  text-shadow: 2px 2px 3px rgb(30, 33, 36);
+  box-shadow: 1px 1px 5px whitesmoke;
+  /* margin-top: 10px; */
+  margin-left: 10px;
+  /* margin-right: 10px; */
+  
+}
+::placeholder{
+  color: whitesmoke;
+}
 .note-textarea,
 .note-title {
-  color: #000000;
-  width: 100%;
+  color:whitesmoke;
+  width: 95%;
+  height: 10%;
   outline: none;
   border: none;
 }
 
 .note-textarea {
   resize: none;
-  height: calc(100% - 63px);
+  height: 89%;
   padding-top: 15px;
+  color: whitesmoke;
 }
 
 .note-title {
   height: 50px;
-  margin-top: 13px;
+  /* margin-top: 13px; */
   font-size: 3rem;
+  margin-bottom: 3px;
 }
 
 .note-title:read-only,
 .note-textarea:read-only {
-  color: #757575;
+  color: whitesmoke;
 }
 
 .list-container .card {
-  height: calc(100vh - 70px);
-  border-bottom: none;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  height: 500px;
+  /* border-bottom: none; */
+  /* border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; */
+  
 }
 
 .list-container {
@@ -56,8 +138,8 @@ body {
 .list-container .list-group-item:first-child,
 .list-container .card {
   border-top: none;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+  /* border-top-right-radius: 0;
+  border-top-left-radius: 0; */
 }
 
 .list-item-title {
