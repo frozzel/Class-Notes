@@ -148,11 +148,18 @@ nav{
 }
 
 .list-container i {
+  color: whitesmoke;
   font-size: 1.1rem;
   cursor: pointer;
 }
 
 .list-container .list-group-item {
+  opacity: .95;
+  font-size: 30px;
+  border-bottom: solid 1px;
+  background-color: rgb(30, 33, 36);
+  color: whitesmoke;
+  border-radius: 15px;
   border-left: none;
   border-right: none;
   padding: 20px;

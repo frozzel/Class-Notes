@@ -1,47 +1,47 @@
 //// Dependencies/////
-const fs = require( 'fs' );
-const express = require( 'express' );
-const path = require( 'path' );
-const dataBaseJson= 'db/db.json';
+const fs = require( "fs" );
+const express = require( "express" );
+const path = require( "path" );
+const { json } = require("express");
+const notes= JSON.parse(fs.readFileSync("db/db.json", "utf8"));
 
 
-///// Init Server ////
+///// Init Server & middle Ware ////
 const app = express();
 const PORT = 3001;
 app.use( express.urlencoded({ extended: true }));
 app.use( express.json());
-app.use( express.static( 'public' ));
-//`GET /api/notes` should read the `db.json` file and return all saved notes as JSON.////
-app.get('/api/notes', (res, req)=>{
-    fs.readFileSync(dataBaseJson, 'utf8'); ///https://stackoverflow.com/questions/48818415/json-parsefs-readfilesync-returning-a-buffer-string-of-numbers ///
-    res.json(JSON.parse(notes));  //may need to change once we get into the index.js///
-})
+app.use( express.static( "public" ));
 
-//`POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file////
-/// Review activities 06 ///// need some research//
-app.post('/api/notes', (res, req)=>{
 
-})
-
-/// `DELETE /api/notes/:id` should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the `db.json` file,///
-app.delete('/api/notes/:id', (res, req)=>{
-    //// research /////
+app.post("/api/notes", (req, res)=>{
+    let newNote = req.body;
+    notes.push(newNote);
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes));
+    res.json(notes);
 })
 
 
 
-//`GET /notes` should return the `notes.html` file.//
-app.get('/notes', (res, req)=>{
-    res.sendFile(path.join(__dirname, './public/notes.html'));
+
+//// links to DB /////
+app.get("/api/notes", (req, res)=>{
+    console.log(notes);
+    return res.json(notes)
 });
 
-// `GET *` should return the `index.html` file.////////
+
+//// Url for notes html///
+app.get("/notes", (res, req)=>{
+    res.sendFile(path.join(__dirname, "notes.html"));
+});
+
+/// Url for index htlm ////
 app.get('/', (res, req)=>{
-    res.sendFile(path.join(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-//// Activates Server ///////////
-
+//// Magic ///////
 app.listen(PORT, ()=>{
     console.log(`App listening at http://localhost:${PORT}`)
 })
