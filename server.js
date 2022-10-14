@@ -26,20 +26,16 @@ app.post("/api/notes", (req, res)=>{
 
 //// links to DB /////
 app.get("/api/notes", (req, res)=>{
-    console.log(notes);
     return res.json(notes)
 });
 
 
 //// Url for notes html///
-app.get("/notes", (res, req)=>{
-    res.sendFile(path.join(__dirname, "notes.html"));
-});
+app.get("/notes", (req, res)=> res.sendFile(path.join(__dirname, "./public/notes.html")));
 
 /// Url for index htlm ////
-app.get('/', (res, req)=>{
-    res.sendFile(path.join(__dirname, "./public/index.html"));
-});
+app.get('/', (req, res)=> res.sendFile(path.join(__dirname, "./public/index.html")));
+app.get('*', (req, res)=> res.sendFile(path.join(__dirname, "./public/index.html")));
 
 //// Magic ///////
 app.listen(3001, ()=>{
