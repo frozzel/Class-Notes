@@ -43,9 +43,7 @@ app.post("/api/notes", (req, res)=>{
 })
 
 //// links to DB /////
-app.get("/api/notes", (req, res)=>{
-    return res.json(notes)
-});
+app.get("/api/notes", (req, res)=> res.json(notes));
 
 /////// Display Db /////////////
 
