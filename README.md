@@ -23,7 +23,7 @@
   Install Node Js. Download repo files and then run npm i to instal express and Heroku. Once installed run node server.js to activate the new server and then open the local port!
   
   ## Usage
-  [Vist Our Site](https://frozzel.github.io/Class-Notes/)
+  [Vist Our Site](https://class-note-taker-project.herokuapp.com/)
   
   
 ![Screen Shots](./public/assets/image/Screen%20Shot%202022-10-13%20at%2010.26.57%20PM.png)
