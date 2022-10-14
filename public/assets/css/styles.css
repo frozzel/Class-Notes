@@ -169,3 +169,35 @@ i{
   color: whitesmoke;
   
 }
+
+
+
+p {
+  border-right: solid 3px rgba(0,255,0,.75);
+  white-space: nowrap;
+  overflow: hidden;    
+  font-family: monospace;  
+  font-size: 60px;
+  color: whitesmoke;
+ 
+  
+}
+
+p {
+  animation: animated-text 4s steps(25,end) 1s 1 normal both,
+             animated-cursor 600ms steps(25,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 1260px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(252, 252, 252, 0.75);}
+  to{border-right-color: transparent;}
+}
