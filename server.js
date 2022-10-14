@@ -8,7 +8,7 @@ const notes= JSON.parse(fs.readFileSync("db/db.json", "utf8"));
 
 ///// Init Server & middle Ware ////
 const app = express();
-const PORT = 3001;
+const PORT = process.envPORT || 3001;
 app.use( express.urlencoded({ extended: true }));
 app.use( express.json());
 app.use( express.static( "public" ));
@@ -42,6 +42,6 @@ app.get('/', (res, req)=>{
 });
 
 //// Magic ///////
-app.listen(PORT, ()=>{
+app.listen(3001, ()=>{
     console.log(`App listening at http://localhost:${PORT}`)
 })
