@@ -3,7 +3,7 @@ const fs = require( "fs" );
 const express = require( "express" );
 const path = require( "path" );
 const notes= JSON.parse(fs.readFileSync("db/db.json", "utf8"));
-
+const uuid= require("./help/uuid")
 
 ///// Init Server & middle Ware ////
 const app = express();
@@ -14,10 +14,19 @@ app.use( express.static( "public" ));
 
 ///////// Write Notes /////////////
 app.post("/api/notes", (req, res)=>{
-    let newNote = req.body;
+    const {title, text}= req.body;
+    if (title && text){
+        const newNote={
+            title,
+            text,
+            id: uuid()
+        }
     notes.push(newNote);
     fs.writeFileSync("./db/db.json", JSON.stringify(notes));
     res.json(notes);
+    }
+    
+    
 })
 
 //// links to DB /////
