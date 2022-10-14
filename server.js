@@ -47,6 +47,11 @@ app.get("/api/notes", (req, res)=>{
     return res.json(notes)
 });
 
+/////// Display Db /////////////
+
+app.get("/api/notes", (req, res)=> fs.readFileSync(res.json(parse(notes))));
+     
+
 //// Url for notes html///
 app.get("/notes", (req, res)=> res.sendFile(path.join(__dirname, "./public/notes.html")));
 
